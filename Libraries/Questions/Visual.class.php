@@ -48,4 +48,19 @@ class QuestionsVisual
         $data = mysql::select($query);
         return $data[0];
     }
+    public static function update($data)
+    {
+        $len=self::$alentele;
+        $query="  UPDATE {$len} set
+                    Klausimas='{$data['klausimas']}',
+                    Teisingas_Atsakymas='{$data['atsakymas']}',
+                    Taškų_Skaičius={$data['tsk_sk']},
+                    tipas=".(isset($data['type'])?$data['type']:"NULL").",
+                    Vaizdinė_Medžiaga=".(isset($data['medziaga'])?$data['medziaga']:"NULL").",
+                    Šaltinis='{$data['saltinis']}'
+                  WHERE
+                    ID={$data['id']}";
+                    var_dump( $query);
+        return mysql::query($query);
+    }
 }
