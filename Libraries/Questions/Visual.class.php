@@ -4,6 +4,7 @@ class QuestionsVisual
     private static $alentele=config::DB_PREFIX.'VAIZDO_KLAUSIMAS';
     private static $blentele=config::DB_PREFIX.'Vaizdo_tipas';
 
+    private static $dlentele=config::DB_PREFIX.'VAIZDO_KLAUSIMAS_RAUNDE';
     private static function QuerryString()
     {
         $Alen=self::$alentele;
@@ -62,5 +63,32 @@ class QuestionsVisual
                     ID={$data['id']}";
                     var_dump( $query);
         return mysql::query($query);
+    }
+
+    public static function checkDependant($id)
+    {
+        $len=self::$dlentele;
+        $query="SELECT count(A.ID) as cnt from {$len} as A where A.FK_ATVIRO_TIPO_KLAUSIMAS={$id}";
+        $data = mysql::select($query);
+        return $data[0]['cnt'];
+    }
+    public static function insert($data)
+    {
+        $len=self::$alentele;
+        $query="  INSERT INTO {$len}(ID,Klausimas,Teisingas_Atsakymas,Taškų_Skaičius,tipas,Vaizdinė_Medžiaga,Šaltinis)
+                        VALUES
+                          ({$data['id']},
+                           '{$data['klausimas']}',
+                           '{$data['atsakymas']}',
+                            {$data['tsk_sk']},
+                            ".(isset($data['type'])?$data['type']:"NULL").",
+                            ".(isset($data['medziaga'])?$data['medziaga']:"NULL").",
+                           '{$data['saltinis']}')";
+        return mysql::query($query);
+    }
+    public static function delete($id){
+      $len=self::$alentele;
+      $query="DELETE FROM {$len} where ID={$id}";
+      return mysql::query($query);
     }
 }

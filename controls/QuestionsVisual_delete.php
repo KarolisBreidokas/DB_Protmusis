@@ -1,0 +1,18 @@
+<?php
+
+include 'Libraries/Questions/Visual.class.php';
+
+if(!empty($id)) {
+	$count = QuestionsVisual::checkDependant($id);
+
+	$removeErrorParameter = '';
+	if($count == 0) {
+		QuestionsVisual::delete($id);
+	} else {
+		$removeErrorParameter = '&remove_error=1';
+	}
+	header("Location: index.php?module={$module}&action=list{$removeErrorParameter}");
+	die();
+}
+
+?>

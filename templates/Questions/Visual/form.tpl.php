@@ -45,15 +45,15 @@
 						<?php if(key_exists('tsk_sk', $maxLengths)) echo "<span class='max-len'>(iki {$maxLengths['tsk_sk']} simb.)</span>"; ?>
 				</p>
 				<p>
-					<?php $picture_RAW=base64_encode($data['medziaga']); ?>
+					<?php if(isset($data['medziaga'])){$picture_RAW=base64_encode($data['medziaga']);} ?>
 					<label class="field" for="medziaga">Vaizdinė medžiaga<?php echo in_array('tsk_sk', $required) ? '<span> *</span>' : ''; ?></label>
-					<img src="<?php echo "data:{$data['type']};base64, {$picture_RAW}" ?>" alt="">
+					<img src="<?php if(isset($data['medziaga'])){echo "data:{$data['type']};base64, {$picture_RAW}";} ?>" alt="">
 					<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
 					<input type="file" id="medziaga" name="medziaga" class="textbox textbox-150" accept="image/*"/>
 				</p>
 				<p>
 					<label class="field" for="type">medžiagos tipas</label>
-					<span class="input-value"><?php echo $data['type']; ?></span>
+					<span class="input-value"><?php if(isset($data['type'])){echo $data['type'];} ?></span>
 
 				</p>
 				<p>
