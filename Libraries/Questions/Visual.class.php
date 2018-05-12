@@ -43,7 +43,7 @@ class QuestionsVisual
     }
     public static function getItem($id)
     {
-        $query= self::QuerryString()." WHERE A.id_VAIZDO_KLAUSIMAI='{$id}'";
+        $query= self::QuerryString()." WHERE A.ID='{$id}'";
 
         $data = mysql::select($query);
         return $data[0];

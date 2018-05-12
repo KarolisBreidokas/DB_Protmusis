@@ -15,12 +15,10 @@ if (!empty($_POST['submit'])) {
     'tsk_sk' => 'int',
     'saltinis' => 'anything',
     'type'=>'int'
-
   );
     $validator=new validator($validations, $required, $maxLengths);
     if ($validator->validate($_POST)) {
         $dataPrep=$validator->preparePostFieldsForSQL();
-
 
         if (QuestionsVisual::update($dataPrep)!=false) {
             header("Location: index.php?module={$module}&action=list");

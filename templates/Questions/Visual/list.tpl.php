@@ -26,7 +26,7 @@
                     . "<td>{$val['klausimas']}</td>"
                     . "<td>{$val['atsakymas']}</td>"
                     . "<td>{$val['tsk_sk']}</td>"
-                    . "<td><a href='data:{$val['type']};base64, {$picture_RAW}'>rodyti</a></td>"
+                    . "<td><a  onclick='showpicture(\"data:{$val['type']};base64, {$picture_RAW}\")'>rodyti</a></td>"
                     . "<td>{$val['saltinis']}</td>"
                     . "<td>"
                         . "<a href='#' onclick='showConfirmDialog(\"{$module}\", \"{$val['id']}\"); return false;' title=''>šalinti</a>&nbsp;"
@@ -34,6 +34,7 @@
                     . "</td>"
                 . "</tr>";
         }
+				//\"=data:{$val['type']};base64, {$picture_RAW}/>\"
     ?>
 </table>
 
