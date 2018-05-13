@@ -388,8 +388,8 @@ textarea.textbox-large{
 		width: 250px;
 		height: 100px;
 		float: left;
-		word-break: break-all;
-		word-wrap:break-word;
+		word-break:keep-all;
+		word-wrap:normal;
 		margin-bottom: 10px;
 }
 
@@ -494,12 +494,17 @@ fieldset .submit {
 
 .childRowContainer .labelLeft, .childRowContainer .labelRight {
     float: left;
-    width: 82px;
     margin-bottom: 5px;
 }
 
 .childRowContainer .labelLeft.wide {
     width: 382px;
+}
+.label-30{
+	width: 47px;
+}
+.label-200{
+	width: 217px;
 }
 
 /* apatinė puslapio dalis */

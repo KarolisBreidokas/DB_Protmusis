@@ -1,7 +1,7 @@
 <ul id="pagePath">
 	<li><a href="index.php">Pradžia</a></li>
-	<li><a href="index.php?module=<?php echo $module; ?>&action=list">Automobilių markės</a></li>
-	<li><?php if(!empty($id)) echo "Markės redagavimas"; else echo "Nauja markė"; ?></li>
+	<li><a href="index.php?module=<?php echo $module; ?>&action=list">Vaizdiniai klausimai</a></li>
+	<li><?php if(!empty($id)) echo "klausimo redagavimas"; else echo "Naujas klausimas"; ?></li>
 </ul>
 <div class="float-clear"></div>
 <div id="formContainer">
@@ -15,10 +15,10 @@
 	<?php } ?>
 	<form enctype="multipart/form-data" action="" method="post">
 		<fieldset>
-			<legend>Atviro klausimo informacija</legend>
+			<legend>Vaizdino klausimo informacija</legend>
 
 				<p>
-					<label class="field" for="id">Klausimo numeris<?php echo in_array('id', $required) ? '<span> *</span>' : ''; ?></label>
+					<label class="field" for="id">Klausimo ID<?php echo in_array('id', $required) ? '<span> *</span>' : ''; ?></label>
 					<?php if(!isset($data['editing'])) { ?>
 						<input type="text" id="id" name="id" class="textbox textbox-150" value="<?php echo isset($data['id']) ? $data['id'] : ''; ?>" />
 						<?php if(key_exists('id', $maxLengths)) echo "<span class='max-len'>(iki {$maxLengths['id']} simb.)</span>"; ?>
