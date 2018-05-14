@@ -1,25 +1,26 @@
 <?php
-include 'Libraries/Questions/Test.class.php';
+include 'Libraries/Pupil.class.php';
+include 'Libraries/Klases.class.php';
+include 'Libraries/Team.class.php';
 $formErrors=array();
-$required=array('id');
+$required=array('id','FK_klase');
 $maxLengths=array();
 $data=array();
-//$required = array('Id','Klausimas','Tsk_sk');
 if (!empty($_POST['submit'])) {
     include 'utils/validator.class.php';
-
     $validations = array(
     'id' => 'int',
-    'klausimas' => 'anything',
-    'tsk_sk' => 'int',
-    'saltinis' => 'anything',
-
+    'vardas' => 'anything',
+    'pavarde' => 'anything',
+    'FK_klase' => 'int',
+    'FK_komanda' => 'anything',
   );
 
     $validator=new validator($validations, $required, $maxLengths);
+
     if ($validator->validate($_POST)) {
         $dataPrep=$validator->preparePostFieldsForSQL();
-        if (QuestionsTest::update($dataPrep)!=false) {
+        if (Pupil::update($dataPrep)!=false) {
             header("Location: index.php?module={$module}&action=list");
             die();
         } else {
@@ -29,10 +30,9 @@ if (!empty($_POST['submit'])) {
     } else {
         $formError=$validator->getErrorHTML();
         $data=$_POST;
-    }//*/
+    }
 } else {
-    $data=QuestionsTest::getItem($id);
-    $data['atsakymai']=TestAnswers::GetList($id);
+    $data=Pupil::getItem($id);
 }
 $data['editing'] = 1;
-include 'templates/Questions/Test/form.tpl.php';
+include 'templates/Pupil/form.tpl.php';

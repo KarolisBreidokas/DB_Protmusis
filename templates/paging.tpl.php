@@ -2,6 +2,7 @@
 	Puslapiai:
 </div>
 <ul id="paging">
+
 	<?php foreach ($paging->data as $key => $value) {
 		$activeClass = "";
 		if($value['isActive'] == 1) {

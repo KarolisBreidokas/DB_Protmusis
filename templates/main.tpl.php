@@ -21,7 +21,7 @@
 						<li><a href="index.php?module=QuestionsTest&action=list" title="Testinės užduotys"<?php if($module == 'Test') { echo 'class="active"'; } ?>>Testinės užduotys</a></li>
 						<li><a href="index.php?module=QuestionsOpen&action=list" title="Atviro tipo klausimai"<?php if($module == 'Open') { echo 'class="active"'; } ?>>Atviro tipo klausimai</a></li>
 						<li><a href="index.php?module=QuestionsVisual&action=list" title="Vaizdiniai klausimai"<?php if($module == 'Visual') { echo 'class="active"'; } ?>>Vaizdiniai klausimai</a></li>
-						<li><a href="index.php?module=employee&action=list" title="Darbuotojai"<?php if($module == 'employee') { echo 'class="active"'; } ?>>Darbuotojai</a></li>
+						<li><a href="index.php?module=Pupil&action=list" title="Mokinai"<?php if($module == 'Pupil') { echo 'class="active"'; } ?>>Mokiniai</a></li>
 						<li><a href="index.php?module=car&action=list" title="Automobiliai"<?php if($module == 'car') { echo 'class="active"'; } ?>>Automobiliai</a></li>
 						<li><a href="index.php?module=brand&action=list" title="Markės"<?php if($module == 'brand') { echo 'class="active"'; } ?>>Markės</a></li>
 					</ul>

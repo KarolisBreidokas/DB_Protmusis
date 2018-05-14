@@ -19,7 +19,7 @@ if (!empty($_POST['submit'])) {
     if ($validator->validate($_POST)) {
         $dataPrep=$validator->preparePostFieldsForSQL();
         if ($_FILES['medziaga']['error']==0) {
-          var_dump($_FILES);
+
             $filename = $_FILES['medziaga']['tmp_name'];
             $handle = fopen($filename, "rb");
 

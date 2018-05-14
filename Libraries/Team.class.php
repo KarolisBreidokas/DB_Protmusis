@@ -1,12 +1,12 @@
 <?php
-  class Klase
+  class Team
   {
-      private static $alentele=config::DB_PREFIX.'KLASĖ';
+      private static $alentele=config::DB_PREFIX.'KOMANDA';
       private static $blentele=config::DB_PREFIX.'MOKYTOJAS';
       private static function shortQuerryString(){
         $alen=self::$alentele;
         return
-        "SELECT A.ID as id,concat(year(A.Mokymosi_Pradžia),A.Raidė) as val
+        "SELECT A.ID as id, A.Pavadinimas as val
         from {$alen} as A";
       }
       private static function QuerryString()
@@ -14,9 +14,9 @@
           $alen=self::$alentele;
           $blen=self::$blentele;
           return
-        "SELECT A.ID as id, A.Raidė as raide,
-                A.Mokymosi_Pradžia as pradz, B.Vardas as avrd
-                ,B.Pavardė as apvd
+        "SELECT A.ID as id, A.Pavadinimas as raide,
+                A.Šūkis as pradz, B.Vardas as avrd
+                ,B.Pavardė as apvd,
         FROM {$alen} AS A
         JOIN {$blen} AS B ON A.FK_MOKYTOJAS=B.ID";
       }
@@ -24,6 +24,7 @@
       public static function GetQList(){
         $query= self::shortQuerryString();
         $data = mysql::select($query);
+
         return $data;
       }
       public static function GetList($limit = null, $offset = null)
@@ -51,7 +52,7 @@
       }
       public static function getItem($id)
       {
-          $query= self::QuerryString()." WHERE A.ID='{$id}'";
+          $query= self::QuerryString()." WHERE A.id_KLASĖS='{$id}'";
           $data = mysql::select($query);
           return $data[0];
       }

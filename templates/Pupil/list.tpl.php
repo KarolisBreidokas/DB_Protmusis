@@ -24,6 +24,7 @@
                     . "<td>{$val['vardas']}</td>"
                     . "<td>{$val['pavarde']}</td>"
                     . "<td>{$val['kprad']}{$val['kraide']}</td>"
+                    . "<td>{$val['pav']}</td>"
                     . "<td>"
                         . "<a href='#' onclick='showConfirmDialog(\"{$module}\", \"{$val['id']}\"); return false;' title=''>šalinti</a>&nbsp;"
                         . "<a href='index.php?module={$module}&action=edit&id={$val['id']}' title=''>redaguoti</a>"

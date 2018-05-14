@@ -37,7 +37,7 @@ class QuestionsVisual
     public static function getCount()
     {
         $len=self::$alentele;
-        $query = "SELECT COUNT(A.id_VAIZDO_KLAUSIMAI) as `kiekis`
+        $query = "SELECT COUNT(A.ID) as kiekis
 					FROM {$len} AS A";
         $data = mysql::select($query);
         return $data[0]['kiekis'];
@@ -61,7 +61,7 @@ class QuestionsVisual
                     Šaltinis='{$data['saltinis']}'
                   WHERE
                     ID={$data['id']}";
-                    var_dump( $query);
+
         return mysql::query($query);
     }
 

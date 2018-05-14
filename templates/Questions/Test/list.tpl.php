@@ -15,7 +15,7 @@
 		<th></th>
 	</tr>
 	<?php
-	//var_dump($data);
+
         // suformuojame lentelę
         foreach ($data as $key => $val) {
             echo
