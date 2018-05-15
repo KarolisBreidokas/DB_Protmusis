@@ -2,24 +2,27 @@
 include 'Libraries/Klases.class.php';
 include 'Libraries/Team.class.php';
 $formErrors=array();
-$required=array('id','FK_klase');
-$maxLengths=array();
+$required=array('id,FK_mokytojas');
+$maxLengths=array('raide'=>'1');
 $data=array();
+//$required = array('Id','Klausimas','Tsk_sk');
 if (!empty($_POST['submit'])) {
     include 'utils/validator.class.php';
+
     $validations = array(
     'id' => 'int',
-    'vardas' => 'anything',
-    'pavarde' => 'anything',
-    'FK_klase' => 'int',
-    'FK_komanda' => 'anything',
+    'raide' => 'anything',
+    'pradz' => 'date',
+    'FK_mokytojas' => 'anything',
+    'laida'=>'int'
   );
 
     $validator=new validator($validations, $required, $maxLengths);
+
     if ($validator->validate($_POST)) {
         $dataPrep=$validator->preparePostFieldsForSQL();
-        if (Pupil::update($dataPrep)!=false) {
-            header("Location: index.php?module={$module}&action=list");
+        if (Klase::update($dataPrep)!=false) {
+           header("Location: index.php?module={$module}&action=list");
             die();
         } else {
             echo mysql::error();
@@ -28,9 +31,10 @@ if (!empty($_POST['submit'])) {
     } else {
         $formError=$validator->getErrorHTML();
         $data=$_POST;
-    }
+    }//*/
 } else {
-    $data=Pupil::getItem($id);
+    $data=Klase::getItem($id);
+    $data['mokiniai']=Pupil::getClassList($id);
 }
 $data['editing'] = 1;
-include 'templates/Pupil/form.tpl.php';
+include 'templates/Klases/form.tpl.php';

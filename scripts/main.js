@@ -3,9 +3,9 @@ $(window).ready(function() {
   $(".addChild").click(function() {
     // pagrindinis vaikinių įrašų konteineris
     childRowContainer = $(this).parent().prev(".childRowContainer");
-
+    conid=childRowContainer[0].id;
     // pašaliname paslėptos eilutės požymius
-    rowClone = $(".childform").clone(true, true);
+    rowClone = $("#"+conid+".childform.hidden").clone(true, true);
     rowClone.removeClass("childform hidden");
     rowClone.addClass("childRow");
     rowClone.children().prop("disabled", false);

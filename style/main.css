@@ -366,6 +366,18 @@ label.field {
     margin-right: 10px;
 }
 
+.labelbox {
+
+		color: #5b5b5b;
+		height: 25px;
+		padding-left: 5px;
+		padding-right: 5px;
+		border-radius: 3px;
+		-moz-border-radius: 3px;
+		border: 1px solid #c0c0c0;
+		text-align: center;
+		vertical-align: middle;
+}
 .textbox {
 	color: #5b5b5b;
 	height: 25px;
@@ -502,6 +514,10 @@ fieldset .submit {
 }
 .label-30{
 	width: 47px;
+}
+
+.label-100{
+	width: 117px;
 }
 .label-200{
 	width: 217px;

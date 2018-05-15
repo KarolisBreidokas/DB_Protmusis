@@ -10,6 +10,7 @@
 	<tr>
 		<th>ID</th>
 		<th>Raidė</th>
+		<th>Mokyklos Laida</th>
 		<th>Pradžios metai</th>
 		<th>Auklėtojas</th>
 		<th></th>
@@ -21,6 +22,7 @@
                 "<tr>"
                     . "<td>{$val['id']}</td>"
                     . "<td>{$val['raide']}</td>"
+                    . "<td>{$val['laida']}</td>"
                     . "<td>{$val['pradz']}</td>"
                     . "<td>{$val['avrd']} {$val['apvd']}</td>"
                     . "<td>"

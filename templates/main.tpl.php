@@ -18,12 +18,12 @@
 			<div id="content">
 				<div id="topMenu">
 					<ul class="float-left">
-						<li><a href="index.php?module=QuestionsTest&action=list" title="Testinės užduotys"<?php if($module == 'Test') { echo 'class="active"'; } ?>>Testinės užduotys</a></li>
-						<li><a href="index.php?module=QuestionsOpen&action=list" title="Atviro tipo klausimai"<?php if($module == 'Open') { echo 'class="active"'; } ?>>Atviro tipo klausimai</a></li>
-						<li><a href="index.php?module=QuestionsVisual&action=list" title="Vaizdiniai klausimai"<?php if($module == 'Visual') { echo 'class="active"'; } ?>>Vaizdiniai klausimai</a></li>
+						<li><a href="index.php?module=QuestionsTest&action=list" title="Testinės užduotys"<?php if($module == 'QuestionsTest') { echo 'class="active"'; } ?>>Testinės užduotys</a></li>
+						<li><a href="index.php?module=QuestionsOpen&action=list" title="Atviro tipo klausimai"<?php if($module == 'QuestionsOpen') { echo 'class="active"'; } ?>>Atviro tipo klausimai</a></li>
+						<li><a href="index.php?module=QuestionsVisual&action=list" title="Vaizdiniai klausimai"<?php if($module == 'QuestionsVisual') { echo 'class="active"'; } ?>>Vaizdiniai klausimai</a></li>
 						<li><a href="index.php?module=Pupil&action=list" title="Mokinai"<?php if($module == 'Pupil') { echo 'class="active"'; } ?>>Mokiniai</a></li>
-						<li><a href="index.php?module=car&action=list" title="Automobiliai"<?php if($module == 'car') { echo 'class="active"'; } ?>>Automobiliai</a></li>
-						<li><a href="index.php?module=brand&action=list" title="Markės"<?php if($module == 'brand') { echo 'class="active"'; } ?>>Markės</a></li>
+						<li><a href="index.php?module=Klases&action=list" title="Klasės"<?php if($module == 'Klases') { echo 'class="active"'; } ?>>Klasės</a></li>
+						<li><a href="index.php?module=Round&action=list" title="Raundai"<?php if($module == 'Round') { echo 'class="active"'; } ?>>Raundai</a></li>
 					</ul>
 					<ul class="float-right">
 						<li><a href="index.php?module=report&action=list" title="Ataskaitos"<?php if($module == 'report') { echo 'class="active"'; } ?>>Ataskaitos</a></li>
