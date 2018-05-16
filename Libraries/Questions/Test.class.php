@@ -10,6 +10,19 @@ class QuestionsTest
                 A.Taškų_Skaičius as tsk_sk, A.Šaltinis as saltinis
         FROM {$len} AS A";
     }
+    private static function shortQuerryString()
+    {
+        $len=self::$lentele;
+        return
+      "SELECT A.ID as id, A.Klausimas as val
+      FROM {$len} AS A";
+    }
+    public static function GetQList()
+    {
+        $query= self::shortQuerryString();
+        $data = mysql::select($query);
+        return $data;
+    }
     public static function GetList($limit = null, $offset = null)
     {
         $limitOffsetString = "";

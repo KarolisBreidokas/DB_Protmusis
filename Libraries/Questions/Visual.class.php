@@ -17,6 +17,19 @@ class QuestionsVisual
         FROM {$Alen} AS A
         LEFT JOIN {$Blen} AS B ON A.tipas = B.id";
     }
+    private static function shortQuerryString()
+    {
+        $len=self::$alentele;
+        return
+      "SELECT A.ID as id, A.Klausimas as val
+      FROM {$len} AS A";
+    }
+    public static function GetQList()
+    {
+        $query= self::shortQuerryString();
+        $data = mysql::select($query);
+        return $data;
+    }
     public static function GetList($limit = null, $offset = null)
     {
         $limitOffsetString = "";

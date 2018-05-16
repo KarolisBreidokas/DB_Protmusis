@@ -21,19 +21,6 @@
 	<form action="" method="post">
 		<fieldset>
 			<legend>Mokinio informacija</legend>
-			<?php if (!isset($data['editing'])) {
-                } else {
-                    ?>
-				<p>
-					<label class="field" for="id">Mokinio ID<?php echo in_array('id', $required) ? '<span> *</span>' : ''; ?></label>
-
-						<span class="input-value"><?php echo $data['id']; ?></span>
-						<input type="hidden" name="editing" value="1" />
-						<input type="hidden" name="id" value="<?php echo $data['id']; ?>" />
-
-				</p>
-									<?php
-                } ?>
 				<p>
 					<label class="field" for="vardas">Vardas<?php echo in_array('vardas', $required) ? '<span> *</span>' : ''; ?></label>
 					<input type="text" id="vardas" name="vardas" class="textbox textbox-150"value="<?php echo isset($data['vardas']) ? $data['vardas'] : ''; ?>"/>

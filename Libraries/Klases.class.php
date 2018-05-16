@@ -85,7 +85,8 @@ include 'Libraries/Pupil.class.php';
           $query="UPDATE  {$len} set
           Raidė='{$data['raide']}',
           Mokymosi_Pradžia='{$data['pradz']}',
-          FK_MOKYTOJAS='{$data['FK_mokytojas']}'
+          Mokyklos_Laida={$data['laida']},
+          FK_MOKYTOJAS={$data['FK_mokytojas']}
           WHERE
             ID={$data['id']}";
           mysql::query($query);
@@ -96,16 +97,16 @@ include 'Libraries/Pupil.class.php';
       }
       public static function insert($data){
         $len=self::$alentele;
-        $query="INSERT {$len}(Raidė,Mokymosi_Pradžia,FK_MOKYTOJAS) VALUES
+        $query="INSERT {$len}(Raidė,Mokyklos_Laida,Mokymosi_Pradžia,FK_MOKYTOJAS) VALUES
         ('{$data['raide']}',
-        Mokymosi_Pradžia='{$data['pradz']}',
-        FK_MOKYTOJAS='{$data['FK_mokytojas']}')";
+          {$data['laida']},
+        '{$data['pradz']}',
+        {$data['FK_mokytojas']})";
         mysql::query($query);
         if (!empty(mysql::error())) {
             return false;
         }
-        $qres= mysql::select("SELECT LAST_INSERT_ID() as Id");
-        $data['id']=$qres[0]['Id'];
+        $data['id']=mysql::getLastInsertedId();
         return Pupil::insertOnClass($data);
       }
 

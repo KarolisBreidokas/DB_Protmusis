@@ -16,18 +16,6 @@
 	<form action="" method="post">
 		<fieldset>
 			<legend>Atviro klausimo informacija</legend>
-
-				<p>
-					<label class="field" for="id">Klausimo ID<?php echo in_array('id', $required) ? '<span> *</span>' : ''; ?></label>
-					<?php if(!isset($data['editing'])) { ?>
-						<input type="text" id="id" name="id" class="textbox textbox-150" value="<?php echo isset($data['id']) ? $data['id'] : ''; ?>" />
-						<?php if(key_exists('id', $maxLengths)) echo "<span class='max-len'>(iki {$maxLengths['id']} simb.)</span>"; ?>
-					<?php } else { ?>
-						<span class="input-value"><?php echo $data['id']; ?></span>
-						<input type="hidden" name="editing" value="1" />
-						<input type="hidden" name="id" value="<?php echo $data['id']; ?>" />
-					<?php } ?>
-				</p>
 				<p>
 					<label class="field" for="klausimas">Klausimas<?php echo in_array('klausimas', $required) ? '<span> *</span>' : ''; ?></label>
 					<textarea id="klausimas" name="klausimas" class="textbox textbox-large"><?php echo isset($data['klausimas']) ? $data['klausimas'] : ''; ?></textarea>

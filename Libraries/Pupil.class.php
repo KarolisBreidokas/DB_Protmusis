@@ -8,13 +8,26 @@ class Pupil
     public static function checkDependant($id)
     {
         $len=self::$dlentele;
-        $query="SELECT count(A.id) as kiekis
+        $query="SELECT count(A.ID) as kiekis
       FROM {$len}
       where A.FK_MOKINYS={$id}";
         $data=mysql::select($query);
         return $data[0]['kiekis'];
     }
 
+    private static function smallQuerryString()
+    {
+        $len=self::$alentele;
+        return
+      "SELECT A.ID as id, concat(A.Vardas,' ',A.Pavardė) as val
+      FROM {$len} AS A";
+    }
+    public static function GetQList()
+    {
+        $query= self::smallQuerryString();
+        $data = mysql::select($query);
+        return $data;
+    }
     private static function classQueryString($id)
     {
         $alen=self::$alentele;

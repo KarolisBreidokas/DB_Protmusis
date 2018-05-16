@@ -52,7 +52,7 @@
       }
       public static function getItem($id)
       {
-          $query= self::QuerryString()." WHERE A.id_KLASĖS='{$id}'";
+          $query= self::QuerryString()." WHERE A.ID='{$id}'";
           $data = mysql::select($query);
           return $data[0];
       }

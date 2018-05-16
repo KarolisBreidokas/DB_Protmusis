@@ -1,6 +1,14 @@
 <?php
-include 'Libraries/Klases.class.php';
+
+header("HTTP/1.0 404 Not Found");
+die();
+
+include 'Libraries/Round.class.php';
 include 'Libraries/Team.class.php';
+include 'Libraries/Pupil.class.php';
+include 'Libraries/Questions/Open.class.php';
+include 'Libraries/Questions/Visual.class.php';
+include 'Libraries/Questions/Test.class.php';
 $formErrors=array();
 $required=array('FK_mokytojas');
 $maxLengths=array('raide'=>'1');
@@ -13,15 +21,14 @@ if (!empty($_POST['submit'])) {
     'raide' => 'anything',
     'pradz' => 'date',
     'FK_mokytojas' => 'int',
-
     'laida'=>'int'
   );
 
     $validator=new validator($validations, $required, $maxLengths);
+
     if ($validator->validate($_POST)) {
         $dataPrep=$validator->preparePostFieldsForSQL();
-
-        if (Klase::insert($dataPrep)!=false) {
+        if (Klase::update($dataPrep)!=false) {
            header("Location: index.php?module={$module}&action=list");
             die();
         } else {
@@ -33,6 +40,12 @@ if (!empty($_POST['submit'])) {
         $data=$_POST;
     }//*/
 } else {
+    $data=Round::getItem($id);
+    $data['moderatoriai']=Moderator::getList($id);
+    $data['komandos']=ParticipatingTeams::getList($id);
+    $data['klausimaiTest']=TestInRound::getList($id);
+    $data['klausimaiOpen']=OpenInRound::getList($id);
+    $data['klausimaiVisual']=VisualInRound::getList($id);
 }
 $data['editing'] = 1;
-include 'templates/Klases/form.tpl.php';
+include 'templates/Round/form.tpl.php';

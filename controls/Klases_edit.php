@@ -10,7 +10,6 @@ if (!empty($_POST['submit'])) {
     include 'utils/validator.class.php';
 
     $validations = array(
-    'id' => 'int',
     'raide' => 'anything',
     'pradz' => 'date',
     'FK_mokytojas' => 'int',

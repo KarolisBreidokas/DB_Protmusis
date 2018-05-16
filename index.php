@@ -17,7 +17,6 @@ error_reporting(E_ALL);
 	if(isset($_GET['id'])) {
 		$id = mysql::escape($_GET['id']);
 	}
-	var_dump(!empty($id));
 	// nustatome, kokia funkcija kviečiama
 	$action = '';
 	if(isset($_GET['action'])) {
