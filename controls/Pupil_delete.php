@@ -1,7 +1,7 @@
 <?php
 
 include 'Libraries/Pupil.class.php';
-if(!empty($id)) {
+if(!empty($id)||$id='0') {
 	$count = Pupil::checkDependant($id);
 	$removeErrorParameter = '';
 	if($count == 0) {

@@ -1,5 +1,4 @@
 <?php
-include 'Libraries/Pupil.class.php';
 include 'Libraries/Klases.class.php';
 include 'Libraries/Team.class.php';
 $formErrors=array();

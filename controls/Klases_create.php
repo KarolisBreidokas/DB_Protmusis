@@ -13,7 +13,7 @@ if (!empty($_POST['submit'])) {
     'id' => 'int',
     'raide' => 'anything',
     'pradz' => 'date',
-    'FK_mokytojas' => 'anything',
+    'FK_mokytojas' => 'int',
 
     'laida'=>'int'
   );

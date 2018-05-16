@@ -2,7 +2,7 @@
 include 'Libraries/Klases.class.php';
 include 'Libraries/Team.class.php';
 $formErrors=array();
-$required=array('id,FK_mokytojas');
+$required=array('FK_mokytojas');
 $maxLengths=array('raide'=>'1');
 $data=array();
 //$required = array('Id','Klausimas','Tsk_sk');
@@ -13,7 +13,7 @@ if (!empty($_POST['submit'])) {
     'id' => 'int',
     'raide' => 'anything',
     'pradz' => 'date',
-    'FK_mokytojas' => 'anything',
+    'FK_mokytojas' => 'int',
     'laida'=>'int'
   );
 
