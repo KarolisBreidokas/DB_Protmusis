@@ -1,9 +1,9 @@
 <ul id="pagePath">
 	<li><a href="index.php">Pradžia</a></li>
-	<li>Atviro tipo klausimai</li>
+	<li>Klasės</li>
 </ul>
 <div id="actions">
-	<a href='index.php?module=<?php echo $module; ?>&action=create'>Naujas Klausimas</a>
+	<a href='index.php?module=<?php echo $module; ?>&action=create'>Nauja klasė</a>
 </div>
 <div class="float-clear"></div>
 <table class="listTable">

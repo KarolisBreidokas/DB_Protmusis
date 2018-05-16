@@ -98,6 +98,12 @@ class QuestionsTest
         }
         return TestAnswers::update($data);
     }
+
+    public static function delete($id){
+      $len=self::$lentele;
+      $query="DELETE FROM {$len} where ID={$id}";
+      return mysql::query($query);
+    }
 }
 class TestAnswers
 {
@@ -178,10 +184,5 @@ class TestAnswers
             }
         }
         return true;
-    }
-    public static function delete($id){
-      $len=self::$lentele;
-      $query="DELETE FROM {$len} where ID={$id}";
-      return mysql::query($query);
     }
 }

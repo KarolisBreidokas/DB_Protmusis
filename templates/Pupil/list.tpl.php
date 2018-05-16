@@ -1,6 +1,6 @@
 <ul id="pagePath">
 	<li><a href="index.php">Pradžia</a></li>
-	<li>Atviro tipo klausimai</li>
+	<li>Mokiniai</li>
 </ul>
 <div id="actions">
 	<a href='index.php?module=<?php echo $module; ?>&action=create'>Naujas Klausimas</a>
