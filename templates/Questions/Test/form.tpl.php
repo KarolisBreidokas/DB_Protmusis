@@ -46,7 +46,7 @@
 			<fieldset>
 				<legend>Atsakymai</legend>
 
-			<div class="childRowContainer">
+			<div id="ats" class="childRowContainer">
 				<div class="labelLeft label-200 <?php if (empty($data['atsakymai']) || sizeof($data['atsakymai']) == 0) {
                     echo ' hidden';
                 } ?>">atsakymas</div>
@@ -62,7 +62,7 @@
                     } else {
                         foreach ($data['atsakymai'] as $key => $val) {
                             ?>
-						<div class="childRow">
+						<div id="ats" class="childRow">
 							<input type=hidden name="deps[]" value="<?php echo $val['dep']; ?>"/>
 
 						<input type="hidden" name="ids[]" value="<?php echo $val['id']; ?>" />
@@ -105,7 +105,7 @@
 
 
 
-<div class="childform hidden">
+<div id="ats" class="childform hidden">
 	<input type=hidden name="deps[]" value="0"/>
 	<input type="hidden" name="ids[]" value="" disabled="disabled" />
 	<input type="text" name="atsakymai[]" class="textbox textbox-200" value="" disabled="disabled" />
