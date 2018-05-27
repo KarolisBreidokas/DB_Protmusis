@@ -10,7 +10,8 @@ class QuestionsOpen
         "SELECT A.ID as id, A.Klausimas as klausimas,
                 A.Teisingas_Atsakymas as atsakymas, A.Taškų_Skaičius as tsk_sk,
                 A.Šaltinis as saltinis
-        FROM {$len} AS A";
+        FROM {$len} AS A
+        ";
     }
 
     private static function shortQuerryString()
@@ -28,6 +29,7 @@ class QuestionsOpen
     }
     public static function GetList($limit = null, $offset = null)
     {
+        $orderstr=" Order by A.Taškų_Skaičius desc ";
         $limitOffsetString = "";
         if (isset($limit)) {
             $limitOffsetString .= " LIMIT {$limit}";
@@ -35,7 +37,7 @@ class QuestionsOpen
                 $limitOffsetString .= " OFFSET {$offset}";
             }
         }
-        $query= self::QuerryString().$limitOffsetString;
+        $query= self::QuerryString().$orderstr.$limitOffsetString;
         $data = mysql::select($query);
         return $data;
     }
@@ -75,14 +77,16 @@ class QuestionsOpen
     public static function insert($data)
     {
         $len=self::$lentele;
-        $query="  INSERT INTO {$len}(ID,Klausimas,Teisingas_Atsakymas,Taškų_Skaičius,Šaltinis)
+        $query="  INSERT INTO {$len}(Klausimas,Teisingas_Atsakymas,Taškų_Skaičius,Šaltinis)
                         VALUES
-                          ({$data['id']},
+                          (
                            '{$data['klausimas']}',
                            '{$data['atsakymas']}',
                             {$data['tsk_sk']},
                            '{$data['saltinis']}')";
-        return mysql::query($query);
+            $ans=mysql::query($query);
+            var_dump(mysql::error());
+            return $ans;
     }
     public static function delete($id){
       $len=self::$lentele;

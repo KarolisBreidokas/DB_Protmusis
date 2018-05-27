@@ -1,7 +1,7 @@
 <?php
 include 'Libraries/Questions/Open.class.php';
 $formErrors=array();
-$required=array('id');
+$required=array();
 $maxLengths=array();
 $data=array();
 //$required = array('Id','Klausimas','Tsk_sk');
@@ -20,7 +20,7 @@ if (!empty($_POST['submit'])) {
     if ($validator->validate($_POST)) {
         $dataPrep=$validator->preparePostFieldsForSQL();
 
-        
+
 
         if (QuestionsOpen::update($dataPrep)!=false) {
             header("Location: index.php?module={$module}&action=list");
