@@ -23,6 +23,7 @@
 						<li><a href="index.php?module=QuestionsVisual&action=list" title="Vaizdiniai klausimai"<?php if($module == 'QuestionsVisual') { echo 'class="active"'; } ?>>Vaizdiniai klausimai</a></li>
 						<li><a href="index.php?module=Pupil&action=list" title="Mokinai"<?php if($module == 'Pupil') { echo 'class="active"'; } ?>>Mokiniai</a></li>
 						<li><a href="index.php?module=Klases&action=list" title="Klasės"<?php if($module == 'Klases') { echo 'class="active"'; } ?>>Klasės</a></li>
+						<li><a href="index.php?module=Round&action=list" title="Raundai"<?php if($module == 'Round') { echo 'class="active"'; } ?>>Raundai</a></li>
 						</ul>
 					<ul class="float-right">
 						<li><a href="index.php?module=report&action=list" title="Ataskaitos"<?php if($module == 'report') { echo 'class="active"'; } ?>>Ataskaitos</a></li>
