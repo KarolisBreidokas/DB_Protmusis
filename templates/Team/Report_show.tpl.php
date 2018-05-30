@@ -1,11 +1,7 @@
 <ul id="reportInfo">
 	<li class="title">Pasibaigusių Raundų ataskaita</li>
 	<li>Sudarymo data: <span><?php echo date("Y-m-d"); ?></span></li>
-	<li>Sutarčių sudarymo laikotarpis:
-		<span><?php
-      var_dump(mysql::error()); ?>
-		</span>
-	</li>
+	
 </ul>
 <table class="listTable">
   <col>

@@ -69,7 +69,6 @@
                   B2.ats as Open_ats,B2.teis as Open_teis,
                   B3.ats as Visual_ats,B3.teis as Visual_teis
                   FROM {$alen} AS A
-                LEFT JOIN  AS B1 ON B1.FK_KOMANDA=A.ID
                 LEFT JOIN(
                   select A.FK_KOMANDA,count(A.FK_KOMANDA) as ats,ifnull(sum(A1.teisingas),0) as teis
                   FROM {$b1len} as A
